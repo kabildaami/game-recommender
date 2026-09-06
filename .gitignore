@@ -1,0 +1,7 @@
+.env
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+rag/chroma_db/*
+!rag/chroma_db/.gitkeep

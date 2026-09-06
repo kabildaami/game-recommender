@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameGem — Discover. Play. Belong.</title>
+  <meta name="description" content="GameGem is an AI-powered game discovery and recommendation experience." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="icon" type="image/jpeg" href="./assets/gamegem-logo.jpg" />
+</head>
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid"></div>
+
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a href="#discover" class="brand" aria-label="GameGem home">
+        <img src="./assets/gamegem-logo.jpg" alt="GameGem logo" class="brand-logo" />
+        <span class="brand-copy">
+          <span class="brand-name" aria-label="GameGem">
+            <span class="brand-game">Game</span><span class="brand-gem">Gem</span>
+          </span>
+          <span class="brand-tagline">DISCOVER. PLAY. BELONG.</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="#discover">Discover</a>
+        <a href="#collections">Collections</a>
+        <a href="#top-picks">Top Picks</a>
+        <a href="#platforms">Platforms</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="ghost-btn small-btn" id="openSearchBtn" type="button">Search</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="featured-carousel container" id="discover" aria-label="Featured games">
+      <div class="carousel-shell glass-card" id="carouselShell" tabindex="0" aria-roledescription="carousel">
+        <div class="carousel-stage" id="carouselStage" aria-live="polite"></div>
+
+        <button class="carousel-nav-zone carousel-nav-left" id="carouselPrev" type="button" aria-label="Previous featured game">
+          <span class="carousel-arrow-pill" aria-hidden="true">‹</span>
+        </button>
+        <button class="carousel-nav-zone carousel-nav-right" id="carouselNext" type="button" aria-label="Next featured game">
+          <span class="carousel-arrow-pill" aria-hidden="true">›</span>
+        </button>
+
+        <div class="carousel-bottom-ui">
+          <div class="carousel-dots" id="carouselDots" aria-label="Featured game pagination"></div>
+          <div class="carousel-progress" aria-hidden="true">
+            <span id="carouselProgressBar"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container filter-panel glass-card">
+      <div class="filter-top">
+        <div>
+          <span class="section-kicker">Browse GameGem</span>
+          <h2>Explore the catalog</h2>
+          <p>Search by title, genre, mood, platform, price, or play style.</p>
+        </div>
+        <div class="search-wrap" id="searchWrap">
+          <input type="search" id="searchInput" placeholder="Search games, genres, or moods..." aria-label="Search games" />
+        </div>
+      </div>
+
+      <div class="chip-row" id="categoryChips">
+        <button class="chip active" data-filter="all" type="button">All</button>
+        <button class="chip" data-filter="rpg" type="button">RPG</button>
+        <button class="chip" data-filter="action" type="button">Action</button>
+        <button class="chip" data-filter="co-op" type="button">Co-op</button>
+        <button class="chip" data-filter="story" type="button">Story Rich</button>
+        <button class="chip" data-filter="budget" type="button">Under $30</button>
+        <button class="chip" data-filter="switch" type="button">Nintendo Switch</button>
+        <button class="chip" data-filter="ps5" type="button">PS5</button>
+      </div>
+    </section>
+
+    <section class="container section-block" id="collections">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">Popular right now</span>
+          <h2>Trending games</h2>
+        </div>
+        <button class="ghost-btn small-btn" type="button">View All</button>
+      </div>
+      <div class="games-grid" id="gamesGrid"></div>
+    </section>
+
+    <section class="container featured-row" id="top-picks">
+      <article class="wide-feature glass-card">
+        <div class="wide-copy">
+          <span class="section-kicker">GameGem curated picks</span>
+          <h2>Better recommendations. Less endless scrolling.</h2>
+          <p>
+            Ask GameGem for cheap co-op games, story-rich RPGs, short evening sessions,
+            platform-specific picks, or details about a title you already have in mind.
+          </p>
+          <div class="feature-bullets">
+            <span>Conversational discovery</span>
+            <span>Fast game details</span>
+            <span>Price &amp; platform filters</span>
+            <span>Streaming AI responses</span>
+          </div>
+        </div>
+        <div class="wide-panel">
+          <div class="mini-stat-card">
+            <strong>Recommendation first</strong>
+            <span>Game cards, compact metadata, and quick paths into the assistant.</span>
+          </div>
+          <div class="mini-stat-card">
+            <strong>FastAPI ready</strong>
+            <span>The assistant connects to <code>/api/chat/stream</code> for live streamed responses.</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="container platforms-strip" id="platforms" aria-label="Supported platforms">
+      <div class="platform-pill">PC</div>
+      <div class="platform-pill">PlayStation 5</div>
+      <div class="platform-pill">Xbox Series X|S</div>
+      <div class="platform-pill">Nintendo Switch</div>
+      <div class="platform-pill">Steam Deck</div>
+    </section>
+  </main>
+
+  <aside class="detail-modal" id="detailModal" aria-hidden="true">
+    <div class="detail-backdrop" id="detailBackdrop"></div>
+    <div class="detail-content glass-card" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <button class="modal-close" id="closeDetailBtn" type="button" aria-label="Close details">×</button>
+      <div class="detail-cover-wrap">
+        <img id="detailCover" src="" alt="Selected game cover" />
+      </div>
+      <div class="detail-copy">
+        <span class="eyebrow" id="detailGenre">Genre</span>
+        <h3 id="detailTitle">Game Title</h3>
+        <p id="detailDescription"></p>
+        <div class="detail-meta" id="detailMeta"></div>
+        <div class="detail-actions">
+          <button class="primary-btn" id="detailAskAiBtn" type="button">Ask GameGem AI</button>
+          <button class="ghost-btn" type="button">Wishlist</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <button class="chat-launcher" id="chatLauncher" type="button" title="Toggle GameGem AI" aria-label="Toggle GameGem AI" aria-expanded="false">
+    <img src="./assets/gamegem-logo.jpg" alt="" />
+    <span class="launcher-status" aria-hidden="true"></span>
+  </button>
+
+  <section class="chat-widget glass-card" id="chatWidget" aria-label="GameGem AI chat" aria-hidden="true">
+    <div class="chat-header">
+      <div class="chat-header-left">
+        <img src="./assets/gamegem-logo.jpg" alt="GameGem logo" />
+        <div class="chat-identity">
+          <strong>GameGem AI</strong>
+          <span><i class="online-dot"></i>Online</span>
+        </div>
+      </div>
+      <button class="icon-btn" id="closeChatBtn" type="button" aria-label="Close chat">×</button>
+    </div>
+
+    <div class="chat-messages" id="chatMessages" aria-live="polite"></div>
+
+    <div class="suggestion-row" id="chatSuggestions">
+      <button class="suggestion-chip" type="button">Cheap PS5 co-op</button>
+      <button class="suggestion-chip" type="button">About Cyberpunk 2077</button>
+      <button class="suggestion-chip" type="button">Short indie game</button>
+    </div>
+
+    <form class="chat-input-wrap" id="chatForm">
+      <label class="chat-composer" for="chatInput">
+        <textarea id="chatInput" rows="1" maxlength="1200" placeholder="Message GameGem AI…" autocomplete="off" aria-label="Message GameGem AI"></textarea>
+        <button type="submit" class="send-btn" aria-label="Send message" title="Send">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </label>
+      <div class="composer-footer">
+        <span>Enter to send</span>
+        <span class="composer-shortcut">Shift + Enter for a new line</span>
+      </div>
+    </form>
+  </section>
+
+  <script src="./js/data.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
