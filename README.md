@@ -8,6 +8,8 @@ Modern game stores contain thousands of titles across different genres, moods, p
 Users can ask for recommendations, request detailed information about a specific game, compare options, or simply have a casual gaming conversation with an assistant that understands the catalog.
 
 Thousands of games. One conversation. The right game.
+https://github.com/user-attachments/assets/fe4e317d-aaed-4565-97f1-cb6e7ba5d436
+
 
 ✨ Features
 
@@ -876,5 +878,3 @@ The long-term vision is for AI assistants like GameGem to become a natural inter
 💎 GameGem
 
 Discover. Play. Belong.
-https://github.com/user-attachments/assets/fe4e317d-aaed-4565-97f1-cb6e7ba5d436
-
